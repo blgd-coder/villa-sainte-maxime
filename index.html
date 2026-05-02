@@ -34,9 +34,10 @@
             <nav class="header-nav" aria-label="Navigation principale">
                 <a href="#bien">Le bien</a>
                 <a href="#galerie">Galerie</a>
+                <a href="#video">Vidéo</a>
                 <a href="#localisation">Localisation</a>
             </nav>
-            <a href="#contact" class="header-cta">Demander le dossier</a>
+            <a href="#contact" class="header-cta" data-cta="header">Organiser une visite</a>
             <button class="menu-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
                 <span></span>
                 <span></span>
@@ -49,8 +50,9 @@
         <nav class="mobile-menu-nav">
             <a href="#bien">Le bien</a>
             <a href="#galerie">Galerie</a>
+            <a href="#video">Vidéo</a>
             <a href="#localisation">Localisation</a>
-            <a href="#contact" class="mobile-menu-cta">Demander le dossier</a>
+            <a href="#contact" class="mobile-menu-cta" data-cta="menu-mobile">Organiser une visite</a>
         </nav>
     </div>
 
@@ -68,8 +70,7 @@
             <h1 class="hero-title">Une maison de famille<br>au soleil du Sud</h1>
             <p class="hero-subtitle">Villa de 160&nbsp;m² avec piscine, 5&nbsp;chambres, quartier résidentiel calme.<br> Prête à vivre. Prête à aimer.</p>
             <div class="hero-actions">
-                <a href="#contact" class="btn btn-primary">Demander le dossier</a>
-                <a href="#contact" class="btn btn-secondary">Organiser une visite</a>
+                <a href="#contact" class="btn btn-primary" data-cta="hero">Organiser une visite</a>
             </div>
             <div class="hero-reassurance">
                 <span>160&nbsp;m²</span>
@@ -122,7 +123,7 @@
                 <article class="distinction-item">
                     <svg class="distinction-icon" width="32" height="32" viewBox="0 0 32 32" fill="none"><path d="M16 2L2 12v18h28V12L16 2z" stroke="currentColor" stroke-width="1.5"/><path d="M11 30V20h10v10" stroke="currentColor" stroke-width="1.5"/></svg>
                     <h3>Impasse résidentielle, vie de quartier</h3>
-                    <p>Située dans une impasse très calme du quartier Bouillonnet, tout en restant proche du centre-ville et des plages de Sainte-Maxime.</p>
+                    <p>Située dans une impasse très calme du quartier Bouillonet, tout en restant proche du centre-ville et des plages de Sainte-Maxime.</p>
                 </article>
 
                 <article class="distinction-item">
@@ -151,12 +152,12 @@
                 </div>
                 <div class="lifestyle-content">
                     <p class="section-overline">L'art de vivre</p>
-                    <h2 class="section-title"><br>C'est votre Sud.</h2>
+                    <h2 class="section-title">Ce n'est pas une maison.<br>C'est votre Sud.</h2>
                     <div class="lifestyle-text">
                         <p>Imaginez. Un vendredi soir, vous quittez Paris. Samedi matin, vous prenez votre café face au jardin pendant que les enfants dorment encore. L'après-midi, c'est plage à deux pas. Le soir, c'est dîner sous la terrasse couverte, barbecue, cigales, et cette lumière de fin de journée qui n'appartient qu'au Sud.</p>
                         <p>Cette maison a été pensée pour recevoir. Cinq chambres, de grands espaces de vie, une cuisine où l'on aime cuisiner, et dehors, cette piscine qui devient le centre de gravité de chaque été.</p>
-                        <p>Sainte-Maxime, c'est le golfe de Saint-Tropez sans l'agitation. Un centre-ville vivant, un marché provençal, des plages accessibles à pied ou en quelques minutes, et la tranquillité d'un quartier résidentiel.</p>
-                       
+                        <p>Sainte-Maxime, c'est le golfe de Saint-Tropez sans l'agitation. Un centre-ville vivant, un marché provençal, des plages accessibles à pied ou en quelques minutes — et la tranquillité d'un quartier résidentiel où l'on connaît ses voisins.</p>
+                        <p>Ici, on ne vient pas en vacances. On rentre chez soi.</p>
                     </div>
                 </div>
             </div>
@@ -225,7 +226,7 @@
         <div class="container">
             <div class="section-header">
                 <p class="section-overline">Visite en images</p>
-                <h2 class="section-title">La maison</h2>
+                <h2 class="section-title">La maison, en vrai</h2>
             </div>
         </div>
 
@@ -316,13 +317,38 @@
 
         <div class="container">
             <div class="gallery-cta">
-                <a href="#contact" class="btn btn-primary">Demander le dossier complet</a>
+                <a href="#contact" class="btn btn-primary" data-cta="galerie">Organiser une visite</a>
             </div>
         </div>
     </section>
 
 
-    <!-- Sections vidéo et plans : à réactiver quand les fichiers seront disponibles -->
+    <!-- ============================================
+         SECTION — VIDÉO
+    ============================================= -->
+    <section class="section section-video" id="video">
+        <div class="container">
+            <div class="section-header reveal">
+                <p class="section-overline">Visite immersive</p>
+                <h2 class="section-title">Parcourez la maison<br> comme si vous y étiez</h2>
+            </div>
+            <div class="video-embed reveal">
+                <div class="video-embed-wrapper">
+                    <iframe
+                        src="https://www.youtube.com/embed/qlVNaEEq-AA?rel=0&modestbranding=1&color=white"
+                        title="Visite de la villa à Sainte-Maxime"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen
+                        loading="lazy">
+                    </iframe>
+                </div>
+                <div class="video-cta">
+                    <a href="#contact" class="btn btn-primary" data-cta="video">Organiser une visite</a>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
     <!-- ============================================
@@ -333,7 +359,7 @@
             <div class="location-grid">
                 <div class="location-content">
                     <p class="section-overline">Emplacement</p>
-                    <h2 class="section-title">Sainte-Maxime,<br>le bon côté du golfe</h2>
+                    <h2 class="section-title">Sainte-Maxime,<br> le bon côté du golfe</h2>
                     <div class="location-text">
                         <p>Sainte-Maxime regarde Saint-Tropez depuis l'autre rive du golfe. Même lumière, même douceur de vivre — sans l'affluence estivale ni les tarifs tropéziens.</p>
                         <p>La villa est implantée dans le quartier résidentiel de Bouillonet, dans une impasse calme, à proximité du centre-ville et des plages.</p>
@@ -392,18 +418,10 @@
                     <h3>Résidence secondaire</h3>
                     <p>Profitez de la maison chaque week-end prolongé, chaque vacance scolaire, chaque été. Un ancrage familial dans le Sud, année après année.</p>
                 </div>
-             <div class="flexibility-card">
-    <h3>Résidence principale</h3>
-    <p>Avec 160&nbsp;m², 5&nbsp;chambres et la proximité du centre-ville, la maison se prête aussi à une installation à l'année pour ceux qui ont fait le choix du Sud.</p>
-
-    <p class="flexibility-note">Au quotidien, tout reste facilement accessible :</p>
-
-    <ul class="flexibility-list">
-        <li>École et collège à proximité</li>
-        <li>Commerces</li>
-        <li>Zone d'activité, théâtre, cinéma, salle de sport…</li>
-    </ul>
-</div>
+                <div class="flexibility-card">
+                    <h3>Résidence principale</h3>
+                    <p>Avec 160&nbsp;m², 5&nbsp;chambres et la proximité du centre-ville, la maison se prête aussi à une installation à l'année pour ceux qui ont fait le choix du Sud.</p>
+                </div>
                 <div class="flexibility-card">
                     <h3>Souplesse patrimoniale</h3>
                     <p>Si vous le souhaitez, la maison peut être proposée en location saisonnière sur une partie de l'été. Ce type de bien, dans ce secteur, peut générer de l'ordre de 20 à 30&nbsp;k€ sur les mois de juin, juillet et août, selon le mode d'exploitation choisi — de quoi contribuer à absorber une partie des charges annuelles.</p>
@@ -467,7 +485,7 @@
                     <span>Très bon état &middot; Aucun travaux à prévoir</span>
                     <span>Prix au m² cohérent avec le marché local</span>
                 </div>
-                <a href="#contact" class="btn btn-primary">Demander le dossier</a>
+                <a href="#contact" class="btn btn-primary" data-cta="prix">Organiser une visite</a>
             </div>
         </div>
     </section>
@@ -525,10 +543,6 @@
                             </div>
                         </a>
                     </div>
-                    <div class="contact-actions">
-                        <a href="mailto:bonici.loic@yahoo.fr?subject=Demande de dossier — Villa Sainte-Maxime" class="btn btn-primary btn-full">Demander le dossier</a>
-                        <a href="mailto:bonici.loic@yahoo.fr?subject=Demande de visite — Villa Sainte-Maxime" class="btn btn-outline btn-full">Organiser une visite</a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -549,6 +563,7 @@
                     <p><a href="tel:+33769164070">07 69 16 40 70</a> &middot; <a href="tel:+33618413983">06 18 41 39 83</a> &middot; <a href="mailto:bonici.loic@yahoo.fr">bonici.loic@yahoo.fr</a></p>
                 </div>
                 <div class="footer-legal">
+                    <p>Les informations présentées sur cette page sont fournies à titre indicatif et ne constituent pas une offre contractuelle. Les surfaces mentionnées sont approximatives. Les revenus locatifs évoqués sont estimatifs et non garantis. Seul l'acte authentique signé chez le notaire fait foi. Photos non contractuelles.</p>
                 </div>
             </div>
         </div>
