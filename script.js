@@ -13,9 +13,6 @@
     var lightbox     = document.getElementById('lightbox');
     var lightboxImg  = lightbox.querySelector('.lightbox-img');
     var lightboxCounter = lightbox.querySelector('.lightbox-counter');
-    var videoWrapper = document.getElementById('videoWrapper');
-    var videoModal   = document.getElementById('videoModal');
-    var videoPlayer  = document.getElementById('videoPlayer');
 
 
     // ============================================
@@ -188,45 +185,10 @@
 
     // Keyboard navigation
     document.addEventListener('keydown', function (e) {
-        if (!lightbox.classList.contains('open') && !videoModal.classList.contains('open')) return;
-
-        if (lightbox.classList.contains('open')) {
-            if (e.key === 'Escape') closeLightbox();
-            if (e.key === 'ArrowLeft') navigateLightbox(-1);
-            if (e.key === 'ArrowRight') navigateLightbox(1);
-        }
-
-        if (videoModal.classList.contains('open')) {
-            if (e.key === 'Escape') closeVideoModal();
-        }
-    });
-
-
-    // ============================================
-    // VIDEO MODAL
-    // ============================================
-    function openVideoModal() {
-        videoModal.classList.add('open');
-        videoModal.setAttribute('aria-hidden', 'false');
-        document.body.style.overflow = 'hidden';
-        videoPlayer.play();
-    }
-
-    function closeVideoModal() {
-        videoModal.classList.remove('open');
-        videoModal.setAttribute('aria-hidden', 'true');
-        document.body.style.overflow = '';
-        videoPlayer.pause();
-    }
-
-    videoWrapper.addEventListener('click', openVideoModal);
-
-    videoModal.querySelector('.video-modal-close').addEventListener('click', closeVideoModal);
-
-    videoModal.addEventListener('click', function (e) {
-        if (e.target === videoModal) {
-            closeVideoModal();
-        }
+        if (!lightbox.classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') navigateLightbox(-1);
+        if (e.key === 'ArrowRight') navigateLightbox(1);
     });
 
 
@@ -243,8 +205,8 @@
             '.gallery-hero-img',
             '.slider-section',
             '.gallery-duo',
-            '.video-wrapper',
-            '.plan-item',
+            '.video-embed',
+
             '.location-content',
             '.location-visual',
             '.location-map-editorial',
@@ -309,5 +271,45 @@
             navigateLightbox(diff > 0 ? 1 : -1);
         }
     }, { passive: true });
+
+
+    // ============================================
+    // CTA CLICK TRACKING
+    // ============================================
+    document.querySelectorAll('[data-cta]').forEach(function (el) {
+        el.addEventListener('click', function () {
+            var label = el.getAttribute('data-cta');
+            // Google Analytics 4 (gtag)
+            if (typeof gtag === 'function') {
+                gtag('event', 'cta_click', {
+                    event_category: 'engagement',
+                    event_label: label
+                });
+            }
+            // Facebook Pixel
+            if (typeof fbq === 'function') {
+                fbq('trackCustom', 'CTAClick', { cta: label });
+            }
+            // Fallback : console log pour debug
+            console.log('[CTA]', label, new Date().toISOString());
+        });
+    });
+
+    // Track contact method clicks (tel, email)
+    document.querySelectorAll('.contact-method').forEach(function (el) {
+        el.addEventListener('click', function () {
+            var type = el.href.startsWith('tel:') ? 'telephone' : 'email';
+            if (typeof gtag === 'function') {
+                gtag('event', 'contact_click', {
+                    event_category: 'engagement',
+                    event_label: type
+                });
+            }
+            if (typeof fbq === 'function') {
+                fbq('trackCustom', 'ContactClick', { method: type });
+            }
+            console.log('[Contact]', type, new Date().toISOString());
+        });
+    });
 
 })();
